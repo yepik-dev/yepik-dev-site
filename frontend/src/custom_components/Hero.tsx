@@ -18,7 +18,7 @@ export const Hero = ({}) => {
               Discover my projects, skills, and experiences.
             </p>
           </div>
-          <span className="border-[1px] rounded-[32px] px-2 py-1">
+          <span className="hidden md:block border-[1px] rounded-[32px] px-2 py-1">
             Since 2025
           </span>
         </article>

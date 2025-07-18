@@ -8,13 +8,13 @@ export const Header = ({}: HeaderProps) => {
         <a href="/" className="">
           Home
         </a>
-        <a href="/saa" className="">
+        <a href="/about" className="">
           About
         </a>
-        <a href="skills" className="">
+        <a href="/skills" className="">
           Skills
         </a>
-        <a href="#contact" className="">
+        <a href="/contact" className="">
           Contact
         </a>
       </nav>

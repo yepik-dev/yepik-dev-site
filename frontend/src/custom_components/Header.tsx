@@ -11,9 +11,6 @@ export const Header = ({}: HeaderProps) => {
         <a href="/about" className="">
           About
         </a>
-        <a href="/skills" className="">
-          Skills
-        </a>
         <a href="/contact" className="">
           Contact
         </a>

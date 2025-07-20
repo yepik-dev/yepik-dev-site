@@ -13,8 +13,10 @@ export const Hero = ({}) => {
       <div className="relative z-10 flex flex-col h-[912px] px-16">
         <article className="mt-40 flex items-start justify-between">
           <div>
-            <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
-            <p className="mt-4 text-lg opacity-50">
+            <h1 className="text-5xl font-accent font-bold">
+              Welcome to My Portfolio
+            </h1>
+            <p className="mt-4 text-lg opacity-50 font-medium">
               Discover my projects, skills, and experiences.
             </p>
           </div>

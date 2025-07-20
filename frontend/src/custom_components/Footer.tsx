@@ -12,7 +12,10 @@ export const Footer = ({}: FooterProps) => {
       <ResponsiveWrapper className="pt-4 sm:pt-10 md:pt-[100px] md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center w-full lg:gap-4 h-full">
           <form action="" className="sm:w-4/5 w-full">
-            <Label htmlFor="email" className="block mb-2 text-lg">
+            <Label
+              htmlFor="email"
+              className="block mb-2 text-lg font-accent font-medium"
+            >
               Subscribe to newsletter
             </Label>
             <Input
@@ -34,7 +37,7 @@ export const Footer = ({}: FooterProps) => {
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-6 text-xl my-4">
             <nav aria-label="Footer contact information">
               <h2 className="text-lg">Talk to us</h2>
-              <ul>
+              <ul className="font-ui">
                 <li>
                   <Link href="tel:+123456789" type="tel">
                     +123 456 789
@@ -53,7 +56,7 @@ export const Footer = ({}: FooterProps) => {
             </nav>
             <nav aria-label="Footer navigation">
               <h2 className="text-lg">Navigation</h2>
-              <ul>
+              <ul className="font-ui">
                 <li>
                   <Link href="/">Home</Link>
                 </li>
@@ -67,7 +70,7 @@ export const Footer = ({}: FooterProps) => {
             </nav>
             <nav aria-label="Footer social links ">
               <h2 className="text-lg">Social</h2>
-              <ul>
+              <ul className="font-ui">
                 <li>
                   <Link href="/">Linkedin</Link>
                 </li>

@@ -12,7 +12,7 @@ export const LinkButton = ({ href, text }: LinkButtonProps) => {
       href={href}
       className="inline-flex items-center group text-primary-foreground text-lg font-semibold"
     >
-      <span className="px-6 py-4 bg-primary rounded-2xl group-hover:bg-primary/90 transition-all duration-300">
+      <span className="px-6 py-4 bg-primary rounded-2xl font-ui group-hover:bg-primary/90 transition-all duration-300">
         {text}
       </span>
       <ArrowRight

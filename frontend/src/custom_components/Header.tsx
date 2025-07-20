@@ -4,7 +4,7 @@ export const Header = ({}: HeaderProps) => {
   return (
     <header className="w-full z-50 h-15 flex justify-center sm:justify-between items-center px-16 text-red-500">
       <p className="hidden sm:block">logo</p>
-      <nav className="flex gap-4">
+      <nav className="flex gap-4 font-ui">
         <a href="/" className="">
           Home
         </a>

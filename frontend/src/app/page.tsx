@@ -8,8 +8,8 @@ import { SkillsPreview } from "@/custom_components/SkillsPreview";
 export default function Home() {
   return (
     <section className="">
+      <Hero />
       <ResponsiveWrapper>
-        <Hero />
         <Introduction />
         {/* <FeaturedProjects /> */}
         <SkillsPreview />

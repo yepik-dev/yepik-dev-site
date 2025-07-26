@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_list_of_values_workflow_steps",
+  "info": {
+    "displayName": "workflowStep"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "stepNumber": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

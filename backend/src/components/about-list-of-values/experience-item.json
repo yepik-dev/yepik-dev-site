@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_about_list_of_values_experience_items",
+  "info": {
+    "displayName": "experienceItem"
+  },
+  "options": {},
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "startYear": {
+      "type": "date",
+      "required": true
+    },
+    "andYear": {
+      "type": "date"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "message_from_forms",
+  "info": {
+    "singularName": "message-from-form",
+    "pluralName": "message-from-forms",
+    "displayName": "MessageFromForm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "message": {
+      "type": "text",
+      "private": true
+    },
+    "email": {
+      "type": "email",
+      "private": true
+    }
+  }
+}

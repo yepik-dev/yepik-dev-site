@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_skills_skill_items",
+  "info": {
+    "displayName": "skillItem"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "linkToProjects": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

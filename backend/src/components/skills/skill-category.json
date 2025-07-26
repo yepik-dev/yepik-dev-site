@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_skills_skill_categories",
+  "info": {
+    "displayName": "skillCategory"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "skill": {
+      "type": "component",
+      "component": "skills.skill-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

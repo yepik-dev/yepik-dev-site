@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_list_of_values_education_items",
+  "info": {
+    "displayName": "educationItem"
+  },
+  "options": {},
+  "attributes": {
+    "degree": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_list_of_values_workflows",
+  "info": {
+    "displayName": "workflow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "step": {
+      "type": "component",
+      "component": "about-list-of-values.workflow-step",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -6,8 +6,17 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "string",
-      "required": true
+      "type": "enumeration",
+      "enum": [
+        "tel",
+        "email",
+        "linkedin",
+        "github",
+        "facebook",
+        "twitter",
+        "instagram",
+        "telegram"
+      ]
     },
     "link": {
       "type": "string",
@@ -15,11 +24,10 @@
     },
     "contactType": {
       "type": "enumeration",
-      "required": false,
       "default": "link",
       "enum": [
         "tel",
-        "mail",
+        "email",
         "link"
       ]
     }

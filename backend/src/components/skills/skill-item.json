@@ -10,6 +10,10 @@
     },
     "linkToProjects": {
       "type": "string"
+    },
+    "isCore": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

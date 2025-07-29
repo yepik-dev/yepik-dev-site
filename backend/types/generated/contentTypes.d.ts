@@ -511,7 +511,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     CV_pdf: Schema.Attribute.Media<'files', true>;
-    intro: Schema.Attribute.Blocks;
+    intro: Schema.Attribute.Component<'home-page.intro', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -3,33 +3,30 @@ import Image from "next/image";
 import { ResponsiveWrapper } from "@/custom_components/ResponsiveWrapper";
 import { SectionTitle } from "@/custom_components/section-title";
 import { ContactCTA } from "@/custom_components/ContactCTA";
+import { SkillList } from "@/custom_components/SkillList";
+import { SkillGroup } from "@/types/skills";
+import { publicApiRequest } from "@/data/services/apiRequest";
+import qs from "qs";
 
-interface aboutAndSkillsProps {}
+const AboutAndSkillsPage = async () => {
+  const query = qs.stringify({
+    populate: {
+      coverImage: true,
+      workflow: {
+        populate: "*",
+      },
+      skills: {
+        populate: "*",
+      },
+    },
+  });
 
-const AboutAndSkillsPage = ({}: aboutAndSkillsProps) => {
-  const skills = {
-    core: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Shadcn/ui"],
-    auxiliary: ["Strapi", "Docker", "PostgreSQL", "Git", "Zod"],
-    soft: ["Communication", "Problem-Solving", "Teamwork", "Adaptability"],
-  };
+  const aboutPageData = await publicApiRequest({
+    path: `about-page?${query}`,
+    method: "GET",
+  });
 
-  function SkillCategory({ title, items }: { title: string; items: string[] }) {
-    return (
-      <div>
-        <h3 className="text-xl font-accent font-semibold mb-4">{title}</h3>
-        <ul className="grid grid-cols-2  gap-4">
-          {items.map((skill) => (
-            <li
-              key={skill}
-              className="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-center text-sm font-medium shadow-sm transition hover:scale-105 hover:border-black hover:shadow-md"
-            >
-              {skill}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+  const { title, description, workflow, skills } = aboutPageData?.data;
 
   return (
     <section>
@@ -45,14 +42,8 @@ const AboutAndSkillsPage = ({}: aboutAndSkillsProps) => {
         <div className="relative z-10 flex flex-col h-[912px] px-16">
           <div className="flex-1 flex flex-col  items-start justify-end">
             <div className="text-3xl font-accent md:text-5xl w-full sm:max-w-2/3 leading-10 md:leading-14 font-normal ">
-              <h1 className="pb-12">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Impedit, voluptatem.
-              </h1>
-              <p className="text-secondary/70">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Consectetur illo consequuntur minus.
-              </p>
+              <h1 className="pb-12">{title}</h1>
+              <p className="text-secondary/70">{description}</p>
             </div>
           </div>
         </div>
@@ -88,59 +79,39 @@ const AboutAndSkillsPage = ({}: aboutAndSkillsProps) => {
           <div className="grid md:grid-cols-[30%_1fr] gap-4">
             <div className="flex flex-col justify-between">
               <h3 className="text-4xl font-medium font-accent">
-                Inside my workflow
+                {workflow.title}
               </h3>
-              <p className="text-lg py-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit nihil nobis placeat totam, doloremque deleniti.
-              </p>
+              <p className="text-lg py-4">{workflow.description}</p>
             </div>
-            <div className="grid md:grid-cols-1 lg:grid-cols-2  gap-4">
-              <div className="border-1 border-primary p-4 text-primary leading-tight">
-                <h4 className="font-semibold text-lg font-accent">Step N</h4>
-                <p className="font-medium text-lg mt-2 mb-4 ">step title</p>
-                <p className="font-medium text-lg text-muted-foreground/80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Labore quis alias vitae rem necessitatibus blanditiis illo
-                  adipisci deserunt quas incidunt!
-                </p>
-              </div>
-              <div className="border-1 border-primary p-4 text-primary leading-tight">
-                <h4 className="font-semibold text-lg font-accent">Step N</h4>
-                <p className="font-medium text-lg mt-2 mb-4 ">step title</p>
-                <p className="font-medium text-lg text-muted-foreground/80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Labore quis alias vitae rem necessitatibus blanditiis illo
-                  adipisci deserunt quas incidunt!
-                </p>
-              </div>
-              <div className="border-1 border-primary p-4 text-primary leading-tight">
-                <h4 className="font-semibold text-lg font-accent">Step N</h4>
-                <p className="font-medium text-lg mt-2 mb-4 ">step title</p>
-                <p className="font-medium text-lg text-muted-foreground/80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Labore quis alias vitae rem necessitatibus blanditiis illo
-                  adipisci deserunt quas incidunt!
-                </p>
-              </div>
-              <div className="border-1 border-primary p-4 text-primary leading-tight">
-                <h4 className="font-semibold text-lg font-accent">Step N</h4>
-                <p className="font-medium text-lg mt-2 mb-4 ">step title</p>
-                <p className="font-medium text-lg text-muted-foreground/80">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Labore quis alias vitae rem necessitatibus blanditiis illo
-                  adipisci deserunt quas incidunt!
-                </p>
-              </div>
-            </div>
+            <ul className="grid md:grid-cols-1 lg:grid-cols-2  gap-4">
+              {workflow.step.map((st) => (
+                <li
+                  key={st.title}
+                  className="border-1 border-primary p-4 text-primary leading-tight"
+                >
+                  <h4 className="font-semibold text-lg font-accent">
+                    {`Step ${st.stepNumber}`}
+                  </h4>
+                  <p className="font-medium text-lg mt-2 mb-4">{st.title}</p>
+                  <p className="font-medium text-lg text-muted-foreground/80">
+                    {st.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </article>
+
         <article className="">
           <SectionTitle title="SKILLS" className="mb-24" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <SkillCategory title="Core Skills" items={skills.core} />
-            <SkillCategory title="Auxiliary Tools" items={skills.auxiliary} />
-            <SkillCategory title="Soft Skills" items={skills.soft} />
+            {skills.map((skill: SkillGroup) => (
+              <SkillList
+                key={skill.category}
+                group={skill}
+                className="xl:grid-cols-2"
+              />
+            ))}
           </div>
         </article>
         <ContactCTA />

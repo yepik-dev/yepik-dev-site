@@ -1,30 +1,48 @@
+import { publicApiRequest } from "@/data/services/apiRequest";
 import { LinkButton } from "./LinkButton";
 import { SectionTitle } from "./section-title";
+import { SkillList } from "./SkillList";
+import qs from "qs";
+import { SkillGroup, SkillItem } from "@/types/skills";
 
-const skills = [
-  "TypeScript",
-  "Next.js",
-  "Tailwind CSS",
-  "Zod",
-  // "Strapi",
-  // "Docker",
-  // "Node.js",
-];
+export const SkillsPreview = async () => {
+  const query = qs.stringify(
+    {
+      populate: {
+        skill: {
+          filters: {
+            isCore: {
+              $eq: true,
+            },
+          },
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
 
-export const SkillsPreview = () => {
+  const skillsAll = await publicApiRequest({
+    path: `skills?${query}`,
+    method: "GET",
+  });
+
+  const coreSkills: SkillGroup = {
+    documentId: "coreSkillsForHomePage",
+    category: "",
+    skill: skillsAll.data.flatMap(({ skill }: { skill: SkillItem[] }) => skill),
+  };
+
+  <SkillList group={coreSkills} />;
+
   return (
     <section className="my-24">
       <SectionTitle title="SKILLS" />
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 my-16">
-        {skills.map((skill) => (
-          <li
-            key={skill}
-            className="flex items-center justify-center bg-primary/10 rounded-lg py-4 text-lg font-semibold"
-          >
-            {skill}
-          </li>
-        ))}
-      </ul>
+      <div className="my-16">
+        <SkillList group={coreSkills} />
+      </div>
+
       <LinkButton href="/skills" text="EXPLORE MORE" />
     </section>
   );

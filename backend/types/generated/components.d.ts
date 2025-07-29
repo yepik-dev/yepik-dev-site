@@ -60,10 +60,32 @@ export interface ContactsContactItem extends Struct.ComponentSchema {
     displayName: 'contactItem';
   };
   attributes: {
-    contactType: Schema.Attribute.Enumeration<['tel', 'mail', 'link']> &
+    contactType: Schema.Attribute.Enumeration<['tel', 'email', 'link']> &
       Schema.Attribute.DefaultTo<'link'>;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.Enumeration<
+      [
+        'tel',
+        'email',
+        'linkedin',
+        'github',
+        'facebook',
+        'twitter',
+        'instagram',
+        'telegram',
+      ]
+    >;
     link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface HomePageIntro extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_intros';
+  info: {
+    displayName: 'Intro';
+  };
+  attributes: {
+    paragraphPart_1: Schema.Attribute.String;
+    paragraphPart_2: Schema.Attribute.String;
   };
 }
 
@@ -84,6 +106,7 @@ export interface SkillsSkillItem extends Struct.ComponentSchema {
     displayName: 'skillItem';
   };
   attributes: {
+    isCore: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     linkToProjects: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -97,6 +120,7 @@ declare module '@strapi/strapi' {
       'about-list-of-values.workflow': AboutListOfValuesWorkflow;
       'about-list-of-values.workflow-step': AboutListOfValuesWorkflowStep;
       'contacts.contact-item': ContactsContactItem;
+      'home-page.intro': HomePageIntro;
       'skills.skill-category': SkillsSkillCategory;
       'skills.skill-item': SkillsSkillItem;
     }

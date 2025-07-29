@@ -33,7 +33,9 @@
       ]
     },
     "intro": {
-      "type": "blocks"
+      "type": "component",
+      "component": "home-page.intro",
+      "repeatable": false
     },
     "skills": {
       "type": "relation",

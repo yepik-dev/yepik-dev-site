@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_home_page_intros",
+  "info": {
+    "displayName": "Intro"
+  },
+  "options": {},
+  "attributes": {
+    "paragraphPart_1": {
+      "type": "string"
+    },
+    "paragraphPart_2": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
